@@ -10,6 +10,8 @@ import { v4 as uuidv4 } from 'uuid';
 function App() {
   const [getTextareaValue,setTextareaValue] = useState('');
   const [data,setData] = useState(comment.comments);
+  const [isEdit,setIsEdit] = useState(false);
+  const [editTextAreaValue,setEditTextAreaValue] = useState('');
   // getting all replies
   const allReplies = data.map((item)=>{
     if(item.replies.length>0){
@@ -22,7 +24,7 @@ function App() {
 
   const handleSubmitComment = () =>{
       let newObj = {
-        "id":5,
+        "id":uuidv4(),
         "content":`${getTextareaValue}`,
         "createdAt":"92 days ago",
         "score":10,
@@ -31,16 +33,35 @@ function App() {
           "username": "juliusomo"
         }
       }
-      setData([...replyData.item,newObj]);
+      setreplyData([...replyData,newObj]);
+      setTextareaValue(prev=>prev='')
   };
 
+  const handleEdit = (e) =>{
+    setIsEdit(true)
+      let value = (e.target.parentElement.parentElement.parentElement.nextElementSibling.querySelector('.comment-text-content p').innerHTML);
+      let pElement = e.target.parentElement.parentElement.parentElement.nextElementSibling.querySelector('.comment-text-content p');
+      let textArea = document.createElement('textarea');
+      textArea.value = value;
+      textArea.cols = "30";
+      textArea.rows='5';
+      textArea.style.resize = "none";
+      textArea.style.width="100%";
+      pElement.replaceWith(textArea);
+  }
+
+  const saveEdit = (e) =>{
+    setIsEdit(false)
+    let value = (e.target.parentElement.parentElement.parentElement.nextElementSibling.querySelector('.comment-text-content textArea').value);
+    let textAreaElement = e.target.parentElement.parentElement.parentElement.nextElementSibling.querySelector('.comment-text-content textArea');
+    console.log(value)
+    let p = document.createElement('p');
+    p.innerHTML = value;
+    textAreaElement.replaceWith(p);
+  }
+
   const handleDelete = (id) =>{
-    replyData.map((item)=>{
-      if(item.length>0){
-        let el = (item.filter((list)=>list.id !== id));
-        return el
-      }
-    });
+    setreplyData(replyData.filter((item)=>item.id!==id));
   }
 
   return (
@@ -53,7 +74,7 @@ function App() {
         <span>
           {
             replyData.map((item)=>{
-              return <Reply key={item.id} {...item} handleDelete={handleDelete}/>
+              return <Reply key={item.id} {...item} handleDelete={handleDelete} handleEdit={handleEdit} isEdit={isEdit} saveEdit={saveEdit}/>
             })
           }
         </span>
@@ -62,7 +83,7 @@ function App() {
             <img src={avatar1} alt='img'></img>
           </div>
             <div className="input">
-              <textarea className="reply-input" onChange={(e)=>setTextareaValue(e.target.value)} cols="30" rows="5"></textarea>
+              <textarea className="reply-input" value={getTextareaValue} onChange={(e)=>setTextareaValue(e.target.value)} cols="30" rows="5"></textarea>
             </div>
               <button className="send-btn" onClick={handleSubmitComment}>send</button>
         </div>
