@@ -1,11 +1,10 @@
 import React,{useReducer} from "react";
-import plusIcon from './Images/icon-plus.svg';
-import minusIcon from './Images/icon-minus.svg';
 import deleteIcon from './Images/icon-delete.svg';
 import editIcon from './Images/icon-edit.svg';
 import avatar2 from './Images/avatars/image-ramsesmiron.png';
 import avatar1 from './Images/avatars/image-juliusomo.png';
 import VoteWrapper from "./Vote-wrapper";
+import ContentText from './ContentText'
 
 const Reply = ({id,content,createdAt,score,user}) =>{
     const {username} = user;
@@ -50,12 +49,8 @@ const Reply = ({id,content,createdAt,score,user}) =>{
               </span>
             </div>
           </div>
-          <div className="col2">
-            <div className="comment-text-content">
-              <p>{content}</p>
-            </div>
-          </div>
-
+          {/* comment text */}
+          <ContentText content={content}/>
         </div>
     </div>
     )
