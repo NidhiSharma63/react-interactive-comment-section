@@ -4,7 +4,8 @@ import replyIcon from './Images/icon-reply.svg';
 import avatar1 from './Images/avatars/image-amyrobson.png';
 import avatar2 from './Images/avatars/image-maxblagun.png';
 import VoteWrapper from "./Vote-wrapper";
-import ContentText from './ContentText'
+import ContentText from './ContentText';
+import UserInfo from './UserInfo'
 
 
 const Comment = ({id,content,createdAt,score,user,replies})=>{
@@ -32,13 +33,7 @@ const Comment = ({id,content,createdAt,score,user,replies})=>{
           <VoteWrapper scoreValue={state} dispatch = {dispatch}/>
           <div className="comment-text">
             <div className="col1">
-              <div className="user-info">
-                  <div className="user-profile">
-                    <img src={username==='maxblagun'?avatar2:avatar1} alt="profile"></img>
-                  </div>
-                  <p className='user-name'>{username}</p>
-                  <p className='user-name timing'>{createdAt}</p>
-              </div>
+            <UserInfo username={username} createdAt={createdAt} avatar1={avatar1} avatar2={avatar2} expectedName={'maxblagun'}/>
               <div className="reply-btn">
                 <p>
                   <img src={replyIcon} alt="reply" />

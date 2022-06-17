@@ -4,7 +4,8 @@ import editIcon from './Images/icon-edit.svg';
 import avatar2 from './Images/avatars/image-ramsesmiron.png';
 import avatar1 from './Images/avatars/image-juliusomo.png';
 import VoteWrapper from "./Vote-wrapper";
-import ContentText from './ContentText'
+import ContentText from './ContentText';
+import UserInfo from "./UserInfo";
 
 const Reply = ({id,content,createdAt,score,user}) =>{
     const {username} = user;
@@ -31,13 +32,7 @@ const Reply = ({id,content,createdAt,score,user}) =>{
         <VoteWrapper scoreValue={state} dispatch = {dispatch}/>
         <div className="comment-text">
           <div className="col1">
-            <div className="user-info">
-                <div className="user-profile">
-                  <img src={username==='ramsesmiron'?avatar2:avatar1} alt="profile"></img>
-                </div>
-                <p className='user-name'>{username}</p>
-                <p className='user-name timing'>{createdAt}</p>
-            </div>
+            <UserInfo username={username} createdAt={createdAt} avatar1={avatar1} avatar2={avatar2} expectedName={'ramsesmiron'}/>
             <div className="edit-delete-btn-container">
               {username==='juliusomo' && <span>
                 <img src={deleteIcon} alt="delete" />
