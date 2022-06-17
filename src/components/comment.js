@@ -10,6 +10,7 @@ import UserInfo from './UserInfo'
 
 const Comment = ({id,content,createdAt,score,user,replies})=>{
     const {username}  = user;
+    console.log(createdAt)
     let initialState = {
       scores:parseInt(score)
     }
@@ -27,7 +28,6 @@ const Comment = ({id,content,createdAt,score,user,replies})=>{
 
     const [state,dispatch] = useReducer(reducer,initialState);
     return(
-      
       <div className="wrapper">
         <div className="comment" id={id}>
           <VoteWrapper scoreValue={state} dispatch = {dispatch}/>
