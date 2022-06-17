@@ -1,0 +1,226 @@
+@import 'config';
+@import 'mixin';
+@import 'mid-section';
+@import 'utilities.scss';
+
+html{
+    font-size: 62.5%;
+}
+body{
+    background-color: var(--Very-light-gray);
+    padding:4rem 0;
+}
+.main-container{
+    max-width: 1300px;
+    margin: auto;
+    // border: 1px solid red;
+}
+.wrapper{
+    width: 60%;
+    margin: auto;
+    // border: 1px solid green;
+}
+.comment{
+    width: 100%;
+    margin-top: 2rem;
+    padding: 2rem 1.3rem;
+    background-color: var(--White);
+    border-radius: .7rem;
+    @include flex-space-between;
+    max-height: 19rem;
+}
+.vote-wrapper{
+    padding: 1rem;
+    @include flex-space-between;
+    @include flex-column;
+    height: 100%;
+    background-color: var(--Very-light-gray);
+    border-radius: .8rem;
+    img{
+        cursor: pointer;
+    }
+    
+    p{
+        padding: 3rem 0rem;
+        font-size: 1.8rem;
+    }
+}
+.comment-text{
+    @include flex-column;
+    @include flex-space-between;
+    padding: 0rem 2rem;
+    height: 90%;
+    width: 100%;
+
+    .col1{
+        @include flex-space-between;
+        align-items: flex-start;
+
+        .user-info{
+            @include flex-center;
+            
+           .user-profile{
+               width: 4.7rem;
+               cursor: pointer;
+               img{
+                   width: 100%;
+               }
+           }
+              .user-name{
+                font-size: 1.7rem;
+                font-weight: var(--fw-bl);
+                color: var(--Dark-blue);
+                padding-left: 1rem;
+              }
+
+              .timing{
+                  font-weight: var(--fw-md);
+              }
+        }
+        .reply-btn:hover{
+            opacity: .5;
+        }
+        .reply-btn p,
+        .reply-to{
+            @include reply-text;
+        }
+    }
+
+    .col2{
+        @include font-size-1;
+        min-height: 8rem;
+
+        .reply-to{
+            @include reply-text;
+            font-size: 1.5rem;
+            padding: 0rem;
+            display: inline;
+        }
+    }
+}
+
+// edit-btns
+
+.edit-delete-btn-container{
+    @include flex-center;
+    font-size: 1.7rem;
+    font-weight: 800;
+    span{
+        display: flex;
+        padding: 0rem 1rem;
+
+        p.delete{
+            color: var(--Soft-Red);
+            cursor: pointer;
+        }
+        p.edit{
+            color: var(--Moderate-blue);
+            cursor: pointer;
+        }
+        p.save{
+            color:var(--green);
+            cursor: pointer;
+        }
+        img{
+            padding-right: 1rem;
+            width: 2.8rem;
+        }
+    }
+}
+
+.reply-comment{
+   @include flex-space-between;
+    width: 58%;
+    margin: auto;
+    padding:2rem;
+    margin-top: 1rem;
+    align-items: flex-start;
+    background-color: var(--White);
+    border-radius: .7rem;
+
+
+    .input{
+        border: 1px solid var(--Light-grayish-blue);
+        width: 77%;
+        border-radius: 0.6rem;
+        padding: .3rem 1rem;
+        margin: 0rem 1rem;
+        textarea{
+            width: 100%;
+            height: 100%;
+            resize: none;
+            border: none;
+            border-radius: 0.6rem;
+            font-size: 1.5rem;
+            color: var(--Grayish-Blue);
+            letter-spacing: .075rem;
+
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    .send-btn{
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 2.1rem;
+        color: white;
+        background: blue;
+        cursor: pointer;
+        border-radius: 0.5rem;
+    }
+}
+
+.textarea{
+    width: 100%;
+    height: 10rem;
+    text-align: start;
+    font-size: 1.5rem;
+    color: var(--Grayish-Blue);
+    letter-spacing: .1rem;
+    line-height: 2.4rem;
+    resize: none;
+    border:1px solid var(--Light-grayish-blue);
+    border-radius: .5rem;
+}
+
+.reply-text{
+    @include font-size-1;
+}
+
+@media screen and (max-width:1000px) {
+    .wrapper{
+        width: 70%;
+    }
+    .reply-comment{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .wrapper{
+        width: 80%;
+    }
+    .reply-comment{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:780px) {
+    .wrapper{
+        width: 90%;
+    }
+    .reply-comment{
+        width: 90%;
+    }
+}
+@media screen and (max-width:650px) {
+    html {
+        font-size: 54.5%;
+    }
+}
+@media screen and (max-width:650px) {
+    html {
+        font-size: 47.5%;
+    }
+}
