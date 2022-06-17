@@ -7,7 +7,7 @@ import VoteWrapper from "./Vote-wrapper";
 import ContentText from './ContentText';
 import UserInfo from "./UserInfo";
 
-const Reply = ({id,content,createdAt,score,user}) =>{
+const Reply = ({id,content,createdAt,score,user,handleDelete}) =>{
     const {username} = user;
 
     let initialState = {
@@ -29,25 +29,24 @@ const Reply = ({id,content,createdAt,score,user}) =>{
 
     return(
         <div className="comment" id={id}>
-        <VoteWrapper scoreValue={state} dispatch = {dispatch}/>
-        <div className="comment-text">
-          <div className="col1">
-            <UserInfo username={username} createdAt={createdAt} avatar1={avatar1} avatar2={avatar2} expectedName={'ramsesmiron'}/>
-            <div className="edit-delete-btn-container">
-              {username==='juliusomo' && <span>
-                <img src={deleteIcon} alt="delete" />
-                <p className="delete">Delete</p>
-              </span>}
-              <span>
-                <img src={editIcon} alt="delete" />
-                <p className="edit">Edit</p>
-              </span>
+          <VoteWrapper scoreValue={state} dispatch = {dispatch}/>
+          <div className="comment-text">
+           <div className="col1">
+              <UserInfo username={username} createdAt={createdAt} avatar1={avatar1} avatar2={avatar2} expectedName={'ramsesmiron'}/>
+              <div className="edit-delete-btn-container">
+                {username==='juliusomo' && <span>
+                  <img src={deleteIcon} alt="delete" onClick={()=>handleDelete(id)}/>
+                  <p className="delete">Delete</p>
+               </span>}
+                <span>
+                 <img src={editIcon} alt="edit" />
+                  <p className="edit">Edit</p>
+                </span>
+              </div>
             </div>
+            <ContentText content={content}/>
           </div>
-          {/* comment text */}
-          <ContentText content={content}/>
         </div>
-    </div>
     )
 }
 

@@ -8,9 +8,8 @@ import ContentText from './ContentText';
 import UserInfo from './UserInfo'
 
 
-const Comment = ({id,content,createdAt,score,user,replies})=>{
+const Comment = ({id,content,createdAt,score,user})=>{
     const {username}  = user;
-    console.log(createdAt)
     let initialState = {
       scores:parseInt(score)
     }
@@ -44,11 +43,6 @@ const Comment = ({id,content,createdAt,score,user,replies})=>{
             <ContentText content={content}/>
           </div>
         </div>
-        {replies.length>0 && 
-          replies.map((item)=>{
-            return <Reply key={item.id} {...item}/>
-          })
-        }
       </div>  
     )
 } 
