@@ -1,11 +1,12 @@
-import React,{useState} from "react";
+import React,{useState,useReducer} from "react";
 import Comment from './comment';
-import Reply from './Reply';
-
 import data from '../Data.json'
-import './scss/main.scss';
+import './scss/main.scss'; 
+
+
 
 function App() {
+  // const [increment,dispatch] = useReducer(reducer,initialState)
   return (
     <div className="main-container">
         {
