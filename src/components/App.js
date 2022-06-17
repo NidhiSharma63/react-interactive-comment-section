@@ -1,14 +1,18 @@
 import React,{useState} from "react";
 import Comment from './comment';
-import './scss/main.scss'
+import Reply from './Reply';
 
+import data from '../Data.json'
+import './scss/main.scss';
 
 function App() {
   return (
     <div className="main-container">
-      <div className="wrapper">
-        {/* <Comment/> */}
-      </div>
+        {
+          data.comments.map((item)=>{
+            return <Comment key={item.id} {...item}/>    
+          })
+        }
     </div>
   );
 }
