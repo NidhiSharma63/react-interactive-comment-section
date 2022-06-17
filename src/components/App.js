@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="main-container">
       <div className="wrapper">
-        <Comment/>
+        {/* <Comment/> */}
       </div>
     </div>
   );
