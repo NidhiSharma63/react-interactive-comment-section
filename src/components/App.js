@@ -4,6 +4,7 @@ import comment from '../Data.json';
 import avatar1 from './Images/avatars/image-juliusomo.png';
 import './scss/main.scss'; 
 import Reply from "./Reply";
+import ReplyInput from './ReplyInput';
 import { v4 as uuidv4 } from 'uuid';
 
 
@@ -11,7 +12,6 @@ function App() {
   const [getTextareaValue,setTextareaValue] = useState('');
   const [data,setData] = useState(comment.comments);
   const [isEdit,setIsEdit] = useState(false);
-  const [editTextAreaValue,setEditTextAreaValue] = useState('');
   // getting all replies
   const allReplies = data.map((item)=>{
     if(item.replies.length>0){
@@ -21,7 +21,10 @@ function App() {
   const [,filledReplies] = allReplies;
   const [replyData,setreplyData] = useState(filledReplies);
 
-
+  const handleTextAreaValue = (event) =>{
+    console.log(event.target.value)
+    setTextareaValue(event.target.value);
+  }
   const handleSubmitComment = () =>{
       let newObj = {
         "id":uuidv4(),
@@ -54,7 +57,6 @@ function App() {
     setIsEdit(false)
     let value = (e.target.parentElement.parentElement.parentElement.nextElementSibling.querySelector('.comment-text-content textArea').value);
     let textAreaElement = e.target.parentElement.parentElement.parentElement.nextElementSibling.querySelector('.comment-text-content textArea');
-    console.log(value)
     let p = document.createElement('p');
     p.innerHTML = value;
     textAreaElement.replaceWith(p);
@@ -78,15 +80,7 @@ function App() {
             })
           }
         </span>
-        <div className="reply-comment">
-          <div className="profile-img">
-            <img src={avatar1} alt='img'></img>
-          </div>
-            <div className="input">
-              <textarea className="reply-input" value={getTextareaValue} onChange={(e)=>setTextareaValue(e.target.value)} cols="30" rows="5"></textarea>
-            </div>
-              <button className="send-btn" onClick={handleSubmitComment}>send</button>
-        </div>
+        <ReplyInput avatar1={avatar1} getTextareaValue={getTextareaValue} handleTextAreaValue={handleTextAreaValue} handleSubmitComment={handleSubmitComment}/>
     </div>
   );
 };
