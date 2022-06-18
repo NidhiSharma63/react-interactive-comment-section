@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/react-interactive-comment-section/static/css/main.073c9b0a.css",
-    "main.js": "/react-interactive-comment-section/static/js/main.8b6aa172.js",
-    "static/js/787.6944c60a.chunk.js": "/react-interactive-comment-section/static/js/787.6944c60a.chunk.js",
-    "static/media/logo.svg": "/react-interactive-comment-section/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/react-interactive-comment-section/static/css/main.3ddb3d2a.css",
+    "main.js": "/react-interactive-comment-section/static/js/main.1b5f1853.js",
     "index.html": "/react-interactive-comment-section/index.html",
-    "main.073c9b0a.css.map": "/react-interactive-comment-section/static/css/main.073c9b0a.css.map",
-    "main.8b6aa172.js.map": "/react-interactive-comment-section/static/js/main.8b6aa172.js.map",
-    "787.6944c60a.chunk.js.map": "/react-interactive-comment-section/static/js/787.6944c60a.chunk.js.map"
+    "static/media/icon-plus.svg": "/react-interactive-comment-section/static/media/icon-plus.0037a825a550965779412c2890bd328b.svg",
+    "static/media/icon-edit.svg": "/react-interactive-comment-section/static/media/icon-edit.b0c7f9ebaec367bd3ae2539df8b55ff9.svg",
+    "static/media/icon-reply.svg": "/react-interactive-comment-section/static/media/icon-reply.bfb4589d45cd96abd45e3b82f7e7bbc6.svg",
+    "static/media/icon-minus.svg": "/react-interactive-comment-section/static/media/icon-minus.4aa6933cb1575b3c54fa67d84a61efaf.svg",
+    "static/media/icon-delete.svg": "/react-interactive-comment-section/static/media/icon-delete.86cedbf2e37529f9c8f1f744254059b0.svg",
+    "main.3ddb3d2a.css.map": "/react-interactive-comment-section/static/css/main.3ddb3d2a.css.map",
+    "main.1b5f1853.js.map": "/react-interactive-comment-section/static/js/main.1b5f1853.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.8b6aa172.js"
+    "static/css/main.3ddb3d2a.css",
+    "static/js/main.1b5f1853.js"
   ]
 }
