@@ -77,13 +77,13 @@ function App() {
             />    
           })
         }
-        <span>
+        <div className="wrapper">
           {
             replyData.map((item)=>{
               return <Reply key={item.id} {...item} handleDelete={handleDelete} handleEdit={handleEdit} isEdit={isEdit} saveEdit={saveEdit}/>
             })
           }
-        </span>
+        </div>
         <ReplyInput avatar1={avatar1} getTextareaValue={getTextareaValue} handleTextAreaValue={handleTextAreaValue} handleSubmitComment={handleSubmitComment}/>
     </div>
   );
