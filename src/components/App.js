@@ -22,7 +22,6 @@ function App() {
   const [replyData,setreplyData] = useState(filledReplies);
 
   const handleTextAreaValue = (event) =>{
-    console.log(event.target.value)
     setTextareaValue(event.target.value);
   }
   const handleSubmitComment = () =>{
@@ -70,7 +69,10 @@ function App() {
     <div className="main-container">
         {
           data.map((item)=>{
-            return <Comment key={item.id} {...item}/>    
+            return <Comment key={item.id} {...item} 
+            avatar1={avatar1} getTextareaValue={getTextareaValue} handleTextAreaValue={handleTextAreaValue} handleSubmitComment={handleSubmitComment}
+            handleDelete={handleDelete} handleEdit={handleEdit} isEdit={isEdit} saveEdit={saveEdit}
+            />    
           })
         };
         <span>
