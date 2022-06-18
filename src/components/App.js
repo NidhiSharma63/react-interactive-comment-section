@@ -40,7 +40,8 @@ function App() {
   };
 
   const handleEdit = (e) =>{
-    setIsEdit(true)
+      e.target.parentElement.classList.add('display-none');
+      e.target.parentElement.nextElementSibling.classList.remove('display-none');
       let value = (e.target.parentElement.parentElement.parentElement.nextElementSibling.querySelector('.comment-text-content p').innerHTML);
       let pElement = e.target.parentElement.parentElement.parentElement.nextElementSibling.querySelector('.comment-text-content p');
       let textArea = document.createElement('textarea');
@@ -53,7 +54,8 @@ function App() {
   }
 
   const saveEdit = (e) =>{
-    setIsEdit(false)
+    e.target.parentElement.classList.add('display-none');
+    e.target.parentElement.previousElementSibling.classList.remove('display-none');
     let value = (e.target.parentElement.parentElement.parentElement.nextElementSibling.querySelector('.comment-text-content textArea').value);
     let textAreaElement = e.target.parentElement.parentElement.parentElement.nextElementSibling.querySelector('.comment-text-content textArea');
     let p = document.createElement('p');
@@ -74,7 +76,7 @@ function App() {
             handleDelete={handleDelete} handleEdit={handleEdit} isEdit={isEdit} saveEdit={saveEdit}
             />    
           })
-        };
+        }
         <span>
           {
             replyData.map((item)=>{

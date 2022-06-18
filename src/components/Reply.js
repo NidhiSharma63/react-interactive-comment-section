@@ -41,19 +41,17 @@ const Reply = ({id,content,createdAt,score,user,handleDelete,handleEdit,isEdit,s
                   <p className="delete">Delete</p>
                </span>}
                 {
-                  !isEdit &&
-                  <span onClick={handleEdit}>
+                  
+                  <span onClick={handleEdit} >
                     <img src={editIcon} alt="edit"/>
                       <p className="edit">Edit</p>
                   </span>
                 }
-                {
-                  isEdit &&
-                  <span onClick={saveEdit}>
+                  
+                  <span onClick={saveEdit} className='display-none'>
                     <img src={editIcon} alt="save"/>
                     <p className="edit">Save</p>
                 </span>
-                }
               </div>
             </div>
             <ContentText content={content}/>
